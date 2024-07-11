@@ -1,0 +1,6 @@
+#aqui se re escriben las reglas
+RewriteEngine On
+#se dice que todas las subcarpetas no queden a la vista
+Options All -Indexes
+#se re escribe una regla que en la ruta despues del nombre puedevenir miniculas mayusculas nomeros y ñs
+RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ index.php?views=$1 
