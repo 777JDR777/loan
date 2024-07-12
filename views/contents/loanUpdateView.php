@@ -11,19 +11,19 @@
 <div class="container-fluid">
     <ul class="full-box list-unstyled page-nav-tabs">
         <li>
-            <a href="reservation-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PRÉSTAMO</a>
+            <a href="<?php echo SERVERURL;?>/loanNew/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PRÉSTAMO</a>
         </li>
         <li>
-            <a href="reservation-reservation.html"><i class="far fa-calendar-alt"></i> &nbsp; RESERVACIONES</a>
+            <a href="<?php echo SERVERURL;?>/loanReservation/"><i class="far fa-calendar-alt"></i> &nbsp; RESERVACIONES</a>
         </li>
         <li>
-            <a href="reservation-pending.html"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; PRÉSTAMOS</a>
+            <a href="<?php echo SERVERURL;?>/loanPending/"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; PRÉSTAMOS</a>
         </li>
         <li>
-            <a href="reservation-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; FINALIZADOS</a>
+            <a href="<?php echo SERVERURL;?>/loanList/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; FINALIZADOS</a>
         </li>
         <li>
-            <a href="reservation-search.html"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
+            <a href="<?php echo SERVERURL;?>/loanSearch/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
         </li>
     </ul>
 </div>
