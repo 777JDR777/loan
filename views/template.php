@@ -13,9 +13,9 @@
 		$ajaxRequest=false; 
 		require_once "./controllers/viewsController.php";
 		$instanceView = new viewsController();
-		$views = $instanceView->getControllerViews();
+		$view = $instanceView->getControllerViews();
 
-		if($views=="login" || $views=="404"){
+		if($view=="login" || $view=="404"){
 			require_once "./views/contents/".$views."View.php";
 		}else{
 	?>
@@ -27,7 +27,7 @@
 		<section class="full-box page-content">
 		<?php 
 			include "./views/include/navBar.php"; 
-			include $views;			
+			include $view;			
 		?>			
 	</main>
 		

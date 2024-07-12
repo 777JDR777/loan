@@ -1,6 +1,6 @@
 <?php
     #aqui el dominio
-    const SERVERURL="http://127.0.0.1/loans";
+    const SERVERURL="http://127.0.0.1/loans/";
 
     const COMPANY="Loan system";
     const MONEDA="$";
