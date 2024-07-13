@@ -77,6 +77,7 @@
             $chain=str_ireplace("TRUNCATE TABLE", "", $chain);
             $chain=str_ireplace("SHOW TABLES", "", $chain);
             $chain=str_ireplace("SHOW DATABASES", "", $chain);
+            $chain=str_ireplace("UPDATE", "", $chain);
             $chain=str_ireplace("<?php", "", $chain);
             $chain=str_ireplace("?>", "", $chain);
             $chain=str_ireplace("--", "", $chain);
