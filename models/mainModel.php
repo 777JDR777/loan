@@ -31,5 +31,36 @@
             $sql->execute();
             return $sql;
         }
+        
+        /*--------- Funcion encriptar cadenas ---------*/
+        #procesa por hast cualquier texto plano
+        public function encryption($string){
+            $output=FALSE;
+            $key=hash('sha256', SECRET_KEY);
+            $iv=substr(hash('sha256', SECRET_IV), 0, 16);
+            $output=openssl_encrypt($string, METHOD, $key, 0, $iv);
+            $output=base64_encode($output);
+            return $output;
+        }
+        /*--------- Funcion desencriptar cadenas ---------*/
+        #esta devuelve de hast a un texto plano
+        protected static function decryption($string){
+            $key=hash('sha256', SECRET_KEY);
+            $iv=substr(hash('sha256', SECRET_IV), 0, 16);
+            $output=openssl_decrypt(base64_decode($string), METHOD, $key, 0, $iv);
+            return $output;
+        }
+
+        /*--------- Funcion códigos aleatorios para los prestamos ---------*/
+        protected static function generateRandomCode($letter,$length,$number){
+            for($i=1; $i<=$length; $i++){
+                $random= rand(0,9);
+                $letter.=$random;
+            }
+            return $letter."-".$number;
+        }
+
     }
+
+   
 
