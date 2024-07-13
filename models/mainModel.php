@@ -60,6 +60,45 @@
             return $letter."-".$number;
         }
 
+        /*--------- Funcion para limpiar comentarios ---------*/
+        #funcion para quitar cadenas y evitar inyeccion sql
+        protected static function cleanChain($chain){
+            # con esta funcion vamos a colcar de primero el parametro que queremos buscas
+            #que seria <scrip> y lo segundo por que lo queremos reemplazar y tercero a donde lo vamosa  aalmacenar 
+            $chain=str_ireplace("<script>", "", $chain);
+            $chain=str_ireplace("</script>", "", $chain);
+            $chain=str_ireplace("</script src", "", $chain);
+            $chain=str_ireplace("</script type=", "", $chain);
+            $chain=str_ireplace("SELECT * FROM", "", $chain);
+            $chain=str_ireplace("DELETE FROM", "", $chain);
+            $chain=str_ireplace("INSERT INTO", "", $chain);
+            $chain=str_ireplace("DROP TABLE", "", $chain);
+            $chain=str_ireplace("DROP DATA BASE", "", $chain);
+            $chain=str_ireplace("TRUNCATE TABLE", "", $chain);
+            $chain=str_ireplace("SHOW TABLES", "", $chain);
+            $chain=str_ireplace("SHOW DATABASES", "", $chain);
+            $chain=str_ireplace("<?php", "", $chain);
+            $chain=str_ireplace("?>", "", $chain);
+            $chain=str_ireplace("--", "", $chain);
+            $chain=str_ireplace(">", "", $chain);
+            $chain=str_ireplace("<", "", $chain);
+            $chain=str_ireplace("[", "", $chain);
+            $chain=str_ireplace("]", "", $chain);
+            $chain=str_ireplace("^", "", $chain);
+            $chain=str_ireplace("==", "", $chain);
+            $chain=str_ireplace(";", "", $chain);
+            $chain=str_ireplace("::", "", $chain);
+            #con esta funcion elimina las flecas invertidas
+            $chain=stripslashes($chain);
+            #la funcion trim quita el espacio antes o despues cuando el usuario lo digita en el formulario
+            $chain=trim($chain);
+        }
+
+
+
+
+
+
     }
 
    
