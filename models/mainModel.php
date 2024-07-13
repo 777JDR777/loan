@@ -62,40 +62,63 @@
 
         /*--------- Funcion para limpiar comentarios ---------*/
         #funcion para quitar cadenas y evitar inyeccion sql
-        protected static function cleanChain($chain){
+        protected static function cleanString($string){
             # con esta funcion vamos a colcar de primero el parametro que queremos buscas
             #que seria <scrip> y lo segundo por que lo queremos reemplazar y tercero a donde lo vamosa  aalmacenar 
-            $chain=str_ireplace("<script>", "", $chain);
-            $chain=str_ireplace("</script>", "", $chain);
-            $chain=str_ireplace("</script src", "", $chain);
-            $chain=str_ireplace("</script type=", "", $chain);
-            $chain=str_ireplace("SELECT * FROM", "", $chain);
-            $chain=str_ireplace("DELETE FROM", "", $chain);
-            $chain=str_ireplace("INSERT INTO", "", $chain);
-            $chain=str_ireplace("DROP TABLE", "", $chain);
-            $chain=str_ireplace("DROP DATA BASE", "", $chain);
-            $chain=str_ireplace("TRUNCATE TABLE", "", $chain);
-            $chain=str_ireplace("SHOW TABLES", "", $chain);
-            $chain=str_ireplace("SHOW DATABASES", "", $chain);
-            $chain=str_ireplace("UPDATE", "", $chain);
-            $chain=str_ireplace("<?php", "", $chain);
-            $chain=str_ireplace("?>", "", $chain);
-            $chain=str_ireplace("--", "", $chain);
-            $chain=str_ireplace(">", "", $chain);
-            $chain=str_ireplace("<", "", $chain);
-            $chain=str_ireplace("[", "", $chain);
-            $chain=str_ireplace("]", "", $chain);
-            $chain=str_ireplace("^", "", $chain);
-            $chain=str_ireplace("==", "", $chain);
-            $chain=str_ireplace(";", "", $chain);
-            $chain=str_ireplace("::", "", $chain);
+            $chain=str_ireplace("<script>", "", $string);
+            $chain=str_ireplace("</script>", "", $string);
+            $chain=str_ireplace("</script src", "", $string);
+            $chain=str_ireplace("</script type=", "", $string);
+            $chain=str_ireplace("SELECT * FROM", "", $string);
+            $chain=str_ireplace("DELETE FROM", "", $string);
+            $chain=str_ireplace("INSERT INTO", "", $string);
+            $chain=str_ireplace("DROP TABLE", "", $string);
+            $chain=str_ireplace("DROP DATA BASE", "", $string);
+            $chain=str_ireplace("TRUNCATE TABLE", "", $string);
+            $chain=str_ireplace("SHOW TABLES", "", $string);
+            $chain=str_ireplace("SHOW DATABASES", "", $string);
+            $chain=str_ireplace("UPDATE", "", $string);
+            $chain=str_ireplace("<?php", "", $string);
+            $chain=str_ireplace("?>", "", $string);
+            $chain=str_ireplace("--", "", $cstring;
+            $chain=str_ireplace(">", "", $string);
+            $chain=str_ireplace("<", "", $string);
+            $chain=str_ireplace("[", "", $string);
+            $chain=str_ireplace("]", "", $string);
+            $chain=str_ireplace("^", "", $string);
+            $chain=str_ireplace("==", "", $string);
+            $chain=str_ireplace(";", "", $string);
+            $chain=str_ireplace("::", "", $string);
             #con esta funcion elimina las flecas invertidas
-            $chain=stripslashes($chain);
+            $chain=stripslashes($string);
             #la funcion trim quita el espacio antes o despues cuando el usuario lo digita en el formulario
-            $chain=trim($chain);
+            $chain=trim($string);
         }
 
+        /*--------- Funcion para verificar datos ---------*/
+        protected static function verifyData($string,$filter){
+            #la funcion preg_match  donde el filtro realiza tiene las reglas
+            #de comportamiento para el input y el string es lo que llega y lo valida el filtro 
+            if(preg_match("/^".$filter0."$/",$string)){
+                return false;
+            }else{
+                return true;
+            }
+        }
 
+        /*--------- Funcion para verificar fechas ---------*/
+        protected static function verifyDate($date){
+            #la funcion eexplde divide un caracter en varios string
+            $values=explode('-',$date);
+            #siteiene los tres valosres y es una fecha validad retorne false
+            if (count($values)==3 && checkdate($values[1],$values[2],$values[0])) {
+               return false;
+            #pero si no conincide sinfifica que si es invalida la fecha
+            } else {
+                return true;
+            }
+            
+        }
 
 
 
